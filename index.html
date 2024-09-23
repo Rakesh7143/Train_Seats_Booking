@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Seats Booking</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: cyan;
+        color: #150303;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: "Lato", sans-serif;
+        margin: 0;
+      }
+      h1 {
+        margin-left: 20px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-gap: 0px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 0px;
+      }
+      .seat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #bb8181;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px;
+        cursor: pointer;
+        color: whitesmoke;
+      }
+      .available {
+        background-color: black;
+      }
+      .booked {
+        background-color: red;
+      }
+      .seat-number {
+        background-color: #3cb371;
+      }
+      .seat-grid {
+        margin-top: 20px;
+        margin-left:-40px;
+      }
+      .col {
+        text-align: center;
+        padding: 5px;
+        font-weight: bold;
+      }
+      .row1 {
+        font-weight: bold;
+      }
+      .available{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #bb8181;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px;
+      }
+      .booked{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #bb8181;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Train Seats Booking</h1>
+    <form id="user-input-form">
+      <label for="seat-number">Enter number of seats (1-7) :</label><br />
+      <input type="number" id="seat-number" name="seat-number" min="1" max="7" required /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <div class="seat-grid">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">A</div>
+        <div class="col">B</div>
+        <div class="col">C</div>
+        <div class="col">D</div>
+        <div class="col">E</div>
+        <div class="col">F</div>
+        <div class="col">G</div>
+      </div>
+      <div class="row" id="row-1">
+        <div class="row1">1</div>
+        <div class="seat available" data-seat="1A"></div>
+        <div class="seat available" data-seat="1B"></div>
+        <div class="seat available" data-seat="1C"></div>
+        <div class="seat available" data-seat="1D"></div>
+        <div class="seat available" data-seat="1E"></div>
+        <div class="seat available" data-seat="1F"></div>
+        <div class="seat available" data-seat="1G"></div>
+      </div>
+      
+      <div class="row" id="row-2">
+        <div class="row1">2</div>
+        <div class="seat available" data-seat="2A"></div>
+        <div class="seat available" data-seat="2B"></div>
+        <div class="seat available" data-seat="2C"></div>
+        <div class="seat available" data-seat="2D"></div>
+        <div class="seat available" data-seat="2E"></div>
+        <div class="seat available" data-seat="2F"></div>
+        <div class="seat available" data-seat="2G"></div>
+      </div>
+      <div class="row" id="row-3">
+        <div class="row1">3</div>
+        <div class="seat available" data-seat="3A"></div>
+        <div class="seat available" data-seat="3B"></div>
+        <div class="seat available" data-seat="3C"></div>
+        <div class="seat available" data-seat="3D"></div>
+        <div class="seat available" data-seat="3E"></div>
+        <div class="seat available" data-seat="3F"></div>
+        <div class="seat available" data-seat="3G"></div>
+      </div>
+      <div class="row" id="row-4">
+        <div class="row1">4</div>
+        <div class="seat available" data-seat="4A"></div>
+        <div class="seat available" data-seat="4B"></div>
+        <div class="seat available" data-seat="4C"></div>
+        <div class="seat available" data-seat="4D"></div>
+        <div class="seat available" data-seat="4E"></div>
+        <div class="seat available" data-seat="4F"></div>
+        <div class="seat available" data-seat="4G"></div>
+      </div>
+      <div class="row" id="row-5">
+        <div class="row1">5</div>
+        <div class="seat available" data-seat="5A"></div>
+        <div class="seat available" data-seat="5B"></div>
+        <div class="seat available" data-seat="5C"></div>
+        <div class="seat available" data-seat="5D"></div>
+        <div class="seat available" data-seat="5E"></div>
+        <div class="seat available" data-seat="5F"></div>
+        <div class="seat available" data-seat="5G"></div>
+      </div>
+      <div class="row" id="row-6">
+        <div class="row1">6</div>
+        <div class="seat available" data-seat="6A"></div>
+        <div class="seat available" data-seat="6B"></div>
+        <div class="seat available" data-seat="6C"></div>
+        <div class="seat available" data-seat="6D"></div>
+        <div class="seat available" data-seat="6E"></div>
+        <div class="seat available" data-seat="6F"></div>
+        <div class="seat available" data-seat="6G"></div>
+      </div>
+      <div class="row" id="row-7">
+        <div class="row1">7</div>
+        <div class="seat available" data-seat="7A"></div>
+        <div class="seat available" data-seat="7B"></div>
+        <div class="seat available" data-seat="7C"></div>
+        <div class="seat available" data-seat="7D"></div>
+        <div class="seat available" data-seat="7E"></div>
+        <div class="seat available" data-seat="7F"></div>
+        <div class="seat available" data-seat="7G"></div>
+      </div>
+      <div class="row" id="row-8">
+        <div class="row1">8</div>
+        <div class="seat available" data-seat="8A"></div>
+        <div class="seat available" data-seat="8B"></div>
+        <div class="seat available" data-seat="8C"></div>
+        <div class="seat available" data-seat="8D"></div>
+        <div class="seat available" data-seat="8E"></div>
+        <div class="seat available" data-seat="8F"></div>
+        <div class="seat available" data-seat="8G"></div>
+      </div>
+      <div class="row" id="row-9">
+        <div class="row1">9</div>
+        <div class="seat available" data-seat="9A"></div>
+        <div class="seat available" data-seat="9B"></div>
+        <div class="seat available" data-seat="9C"></div>
+        <div class="seat available" data-seat="9D"></div>
+        <div class="seat available" data-seat="9E"></div>
+        <div class="seat available" data-seat="9F"></div>
+        <div class="seat available" data-seat="9G"></div>
+      </div>
+      <div class="row" id="row-10">
+        <div class="row1">10</div>
+        <div class="seat available" data-seat="10A"></div>
+        <div class="seat available" data-seat="10B"></div>
+        <div class="seat available" data-seat="10C"></div>
+        <div class="seat available" data-seat="10D"></div>
+        <div class="seat available" data-seat="10E"></div>
+        <div class="seat available" data-seat="10F"></div>
+        <div class="seat available" data-seat="10G"></div>
+      </div>
+      <div class="row" id="row-11">
+        <div class="row1">11</div>
+        <div class="seat available" data-seat="11A"></div>
+        <div class="seat available" data-seat="11B"></div>
+        <div class="seat available" data-seat="11C"></div>
+        <div class="seat available" data-seat="11D"></div>
+        <div class="seat available" data-seat="11E"></div>
+        <div class="seat available" data-seat="11F"></div>
+        <div class="seat available" data-seat="11G"></div>
+      </div>
+      <div class="row" id="row-12">
+        <div class="row1">12</div>
+        <div class="seat available" data-seat="12A"></div>
+        <div class="seat available" data-seat="12B"></div>
+        <div class="seat available" data-seat="12C"></div>
+      </div>
+      <!-- Repeat for more rows -->
+       <!-- <div class="available"></div>
+       <div class="booked"></div> -->
+    </div>
+
+    <h2 id="output"></h2>
+
+    <script>
+      const seats = document.querySelectorAll('.seat.available');
+      let bookedSeats = [];
+
+      document.getElementById('user-input-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const seatCount = parseInt(document.getElementById('seat-number').value);
+        if (seatCount >= 1 && seatCount <= 7) {
+          bookedSeats = [];
+          bookSeats(seatCount);
+        }
+      });
+
+      function bookSeats(count) {
+        let seatsInRow = 0;
+        let startIndex = -1;
+
+        // Try to book seats in the same row first
+        for (let row = 1; row <= 2; row++) { // Adjust according to the number of rows
+          const rowSeats = document.querySelectorAll(`#row-${row} .seat.available`);
+          for (let i = 0; i < rowSeats.length; i++) {
+            if (rowSeats[i].classList.contains('available')) {
+              if (seatsInRow === 0) startIndex = i;
+              seatsInRow++;
+            } else {
+              seatsInRow = 0; // Reset if booked seat found in the row
+            }
+
+            if (seatsInRow === count) {
+              for (let j = startIndex; j < startIndex + count; j++) {
+                rowSeats[j].classList.remove('available');
+                rowSeats[j].classList.add('booked');
+                bookedSeats.push(rowSeats[j].getAttribute('data-seat'));
+                rowSeats[j].textContent = rowSeats[j].getAttribute('data-seat');
+                rowSeats[j].classList.add('seat-number');
+              }
+              break;
+            }
+          }
+        }
+
+        // If no continuous seats found in one row, book the first available ones
+        if (bookedSeats.length < count) {
+          let bookedSoFar = bookedSeats.length;
+          for (let i = 0; i < seats.length && bookedSoFar < count; i++) {
+            if (seats[i].classList.contains('available')) {
+              seats[i].classList.remove('available');
+              seats[i].classList.add('booked');
+              bookedSeats.push(seats[i].getAttribute('data-seat'));
+              seats[i].textContent = seats[i].getAttribute('data-seat');
+              seats[i].classList.add('seat-number');
+              bookedSoFar++;
+            }
+          }
+        }
+
+        document.getElementById('output').innerText = `Seats booked: ${bookedSeats.join(', ')}`;
+      }
+    </script>
+  </body>
+</html>
